@@ -5,9 +5,14 @@ const pool = mysql.createPool({
     user: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
     database: process.env.DB_NAME,
+    port: 4000, 
+    ssl: {
+        minVersion: 'TLSv1.2',
+        rejectUnauthorized: true
+    },
     waitForConnections: true,
     connectionLimit: 10,
     queueLimit: 0
 });
 
-module.exports = pool.promise(); // We'll use promise version to write async/await code
+module.exports = pool.promise();
