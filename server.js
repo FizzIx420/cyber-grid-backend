@@ -8,7 +8,7 @@ const app = express();                   // Create the brain
 
 // Middleware (guards)
 app.use(helmet());                        // Put a helmet on
-app.use(cors({ origin: 'http://localhost:5500' })); // Allow your frontend to talk
+app.use(cors({})); // Allow your frontend to talk
 app.use(express.json());                   // Understand JSON messages
 
 // Rate limiter – don't let anyone spam too many requests
